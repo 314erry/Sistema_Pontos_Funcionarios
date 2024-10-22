@@ -30,14 +30,8 @@ class Controller_Ponto:
 
         try:
             data_ponto = input("Data (YYYY-MM-DD): ")
-            # Tenta converter a data para garantir que está correta
-            data_ponto = datetime.strptime(data_ponto, '%Y-%m-%d').date()
-
             hora_entrada = input("Hora de Entrada (HH:MM): ")
-            hora_entrada = datetime.strptime(hora_entrada, '%H:%M').time()
-
             hora_saida = input("Hora de Saída (HH:MM): ")
-            hora_saida = datetime.strptime(hora_saida, '%H:%M').time()
         except ValueError:
             print("Data ou hora inválida. Por favor, insira os dados no formato correto.")
             return None
@@ -85,13 +79,8 @@ class Controller_Ponto:
         if not self.verifica_existencia_ponto(oracle, codigo_ponto):
             try:
                 nova_data = input("Nova Data (YYYY-MM-DD): ")
-                nova_data = datetime.strptime(nova_data, '%Y-%m-%d').date()
-
                 nova_hora_entrada = input("Nova Hora de Entrada (HH:MM): ")
-                nova_hora_entrada = datetime.strptime(nova_hora_entrada, '%H:%M').time()
-
                 nova_hora_saida = input("Nova Hora de Saída (HH:MM): ")
-                nova_hora_saida = datetime.strptime(nova_hora_saida, '%H:%M').time()
             except ValueError:
                 print("Data ou hora inválida. Por favor, insira os dados no formato correto.")
                 return None
